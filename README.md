@@ -43,11 +43,11 @@ Instead of traversing in sequence, routes are selected based on the best match.
 
 - Links: The Links component creates links for different routes and implements navigation around the application. It works as an HTML anchor tag.
 
-## <NavLink />
+## NavLink
 
 The NavLink is used when you want to highlight a link as active. So, on every routing to a page, the link is highlighted according to the activeClassName . Link is for links that need no highlighting. And a is for external links.
 
-## <Outlet />
+## Outlet
 
 The <Outlet> element is used as a placeholder. 
 ```
