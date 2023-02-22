@@ -1,70 +1,65 @@
-# Getting Started with Create React App
+# React: Single Page Application(SPA).
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+React is a single page application. In a non-single page application, when you click on a link in the browser, a requesst is sent to the server before the HTML page gets rendered.
 
-## Available Scripts
+In React, the page contents are created from out components. So what react router does is intercept the request being sent to the server and then injects the contents dynamically from the components we have created.
 
-In the project directory, you can run:
+When you create a new project, you'll always see an index.html file in the public folder. All the code you write in your App component which acts as the root component gets rendered to this HTML file. This means that there is only one HTML file where your code will be rendered to.
 
-### `npm start`
+What happens when you have a different component you would prefer to render as a different page? Do you create a new HTML file? The answer is no. React Router – like the name implies – helps you route to/navigate to and render your new component in the index.html file.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+So as a single page application, when you navigate to a new component using React Router, the index.html will be rewritten with the component's logic.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+# React Router 
 
-### `npm test`
+React Router is a standard library for routing in React. It enables routing navigation between views from different components in a React application, allows the browser URL to be changed, and keeps the UI in sync with the URL.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# Install React Router
+```
+npm install react-router-dom@6
+```
 
-### `npm run build`
+# Flow:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Since the App component acts as the root component where our React code gets rendered from initially, so all the routes are to be created in this App component.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## HTML5 History API:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- The HTML5 history API gives you access to the browser navigation history via JavaScript. 
+- The HTML5 history API enables a web page to listen for changes in the browser history. 
+- The security restrictions apply here too, so a web page will not be notified of history changes that leads to URLs outside of the domain of the web page. 
+- The HTML5 history API is really useful in single page web apps. 
+- A single page web app can use the HTML5 history API to make a certain state.
 
-### `npm run eject`
+## The main components of React Router are:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- BrowserRouter: BrowserRouter is a router implementation that uses the HTML5 history API(pushststate, replacestate, and popstate events) to keep your UI in sync with the URL. It is the parent component used to store all other components.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Route: This is a new component introduced in v6 and an upgrade of the component. The main advantages of Switch Over Routes are:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Instead of traversing in sequence, routes are selected based on the best match.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- Route: A route is a conditionally shown component that provides UI when its path matches the current URL.
 
-## Learn More
+- Links: The Links component creates links for different routes and implements navigation around the application. It works as an HTML anchor tag.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## <NavLink />
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+The NavLink is used when you want to highlight a link as active. So, on every routing to a page, the link is highlighted according to the activeClassName . Link is for links that need no highlighting. And a is for external links.
 
-### Code Splitting
+## <Outlet />
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+The <Outlet> element is used as a placeholder. 
+```
+<Route path="/" element={<Home />}>
+    <Route path="/home1" element={<div>Child Route 1</div>}/>
+    <Route path="/home2" element={<div>Child Route 2</div>}/>
+</Route>
+```
+In this case an <Outlet>enables the Users component to render its child routes. Thus the<Outlet> element will render either a <div>Child Route 1</div> or <div>Child Route 2</div> element depending on the current location.
 
-### Analyzing the Bundle Size
+# Sources:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- HTML5 History API: https://jenkov.com/tutorials/html5/history-api.html
+- React Router: https://www.javatpoint.com/browserrouter-in-react
+- React Router: https://www.freecodecamp.org/news/how-to-use-react-router-version-6/
